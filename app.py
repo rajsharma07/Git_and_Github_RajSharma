@@ -12,6 +12,9 @@ DATA_FILE = os.path.join(os.path.dirname(__file__), "data.json")
 def get_frontend():
     return render_template("index.html")
 
+@app.route("/todo", methods=["GET"])
+def get_todo_page():
+    return render_template("todo.html")
 
 @app.route("/api", methods=["GET"])
 def get_api_data():

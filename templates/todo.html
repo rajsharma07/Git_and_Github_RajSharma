@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Daymark | Todo</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+
+<body>
+
+  <main class="app-shell">
+
+    <aside class="sidebar">
+      <div class="brand">
+        <span class="brand-mark">D</span>
+        <span>daymark</span>
+      </div>
+
+      <p class="sidebar-label">Workspace</p>
+
+      <button class="nav-item active" type="button">
+        <span class="nav-icon">○</span>
+        My tasks
+        <span class="nav-count" id="nav-count">0</span>
+      </button>
+
+      <div class="sidebar-foot">
+        <p>Keep the important<br>things moving.</p>
+        <span class="mini-line"></span>
+      </div>
+    </aside>
+
+
+    <section class="content">
+
+      <header class="topbar">
+
+        <div>
+          <p class="eyebrow" id="today-label">TODAY</p>
+          <h1>Good morning.</h1>
+        </div>
+
+        <div class="progress-wrap">
+          <div class="progress-copy">
+            <span>Daily progress</span>
+            <strong id="progress-text">0%</strong>
+          </div>
+
+          <div class="progress-track">
+            <span id="progress-bar"></span>
+          </div>
+        </div>
+
+      </header>
+
+
+      <section class="capture-panel">
+
+        <div class="capture-heading">
+          <span class="spark">✦</span>
+
+          <div>
+            <h2>What needs your attention?</h2>
+            <p>Add a task and make some room in your head.</p>
+          </div>
+        </div>
+
+
+        <!-- Task 3: To-Do form -->
+        <form
+          id="task-form"
+          class="task-form"
+          action="/submittodoitem"
+          method="POST"
+        >
+
+          <input
+            id="item-name"
+            name="itemName"
+            type="text"
+            maxlength="120"
+            placeholder="Item Name"
+            autocomplete="off"
+            required
+          >
+
+          <textarea
+            id="item-description"
+            name="itemDescription"
+            maxlength="500"
+            placeholder="Item Description"
+            autocomplete="off"
+            required
+          ></textarea>
+
+          <button type="submit">
+            Add task <span>↵</span>
+          </button>
+
+        </form>
+
+      </section>
+
+
+      <section class="task-section">
+
+        <div class="section-heading">
+
+          <div>
+            <p class="eyebrow">YOUR LIST</p>
+            <h2>Tasks</h2>
+          </div>
+
+          <button
+            id="clear-completed"
+            class="text-button"
+            type="button"
+          >
+            Clear completed
+          </button>
+
+        </div>
+
+
+        <div class="toolbar">
+
+          <div
+            class="filters"
+            role="group"
+            aria-label="Task filters"
+          >
+
+            <button
+              class="filter active"
+              data-filter="all"
+              type="button"
+            >
+              All <span id="all-count">0</span>
+            </button>
+
+            <button
+              class="filter"
+              data-filter="active"
+              type="button"
+            >
+              Open <span id="active-count">0</span>
+            </button>
+
+            <button
+              class="filter"
+              data-filter="completed"
+              type="button"
+            >
+              Done <span id="completed-count">0</span>
+            </button>
+
+          </div>
+
+          <span class="sort-note">Sorted by newest</span>
+
+        </div>
+
+
+        <div id="task-list" class="task-list"></div>
+
+
+        <div
+          id="empty-state"
+          class="empty-state"
+          hidden
+        >
+
+          <div class="empty-icon">✓</div>
+
+          <h3>Nothing here yet</h3>
+
+          <p>
+            Add your first task above and take it from there.
+          </p>
+
+        </div>
+
+      </section>
+
+    </section>
+
+  </main>
+
+
+  <script src="{{ url_for('static', filename='app.js') }}"></script>
+
+</body>
+</html>
