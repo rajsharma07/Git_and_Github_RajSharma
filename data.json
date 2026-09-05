@@ -1,0 +1,37 @@
+[
+  {
+    "id": 1,
+    "name": "Alice Johnson",
+    "email": "alice@example.com",
+    "course": "Python Programming Language",
+    "age": 21
+  },
+  {
+    "id": 2,
+    "name": "Bob Smith",
+    "email": "bob@example.com",
+    "course": "Web Development",
+    "age": 22
+  },
+  {
+    "id": 3,
+    "name": "Charlie Brown",
+    "email": "charlie@example.com",
+    "course": "Data Science",
+    "age": 24
+  },
+  {
+    "id": 4,
+    "name": "Diana Ross",
+    "email": "diana@example.com",
+    "course": "Database Management",
+    "age": 23
+  },
+  {
+    "id": 5,
+    "name": "Ethan White",
+    "email": "ethan@example.com",
+    "course": "JavaScript Fundamentals",
+    "age": 25
+  }
+]
